@@ -1,0 +1,88 @@
+body {
+    background-color: black;
+    overflow: hidden; /*esconde o que esta sobrando pra fora da tela*/
+}
+main::after { /*pseudo elemento(da pra adicionar algo que nao tem no html*/
+    content: "o";
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 80vw;
+
+    background: linear-gradient(-233deg, #000 40%, rgba(0, 0, 0, 0) 65%) no-repeat;
+}
+main .personagem {
+    display: none; /*não apresenta nada*/
+    height: 100vh; /*view port height (basicamente ocupa 100% do tamanho do dispositivo da pessoa)*/
+}
+
+main .personagem.selecionado {
+    display: block;/*apresenta*/
+}
+
+main .personagem .imagem {
+    width: 100%; /* ocupa 100% da largura*/
+    height: 100%; /*ocupa 100% da altura*/
+    object-fit: cover; /*arruma o "vh"*/
+}
+
+.conteudo {
+    position: absolute;/*fica por cima(destaca o conteudo)*/
+    top: 0;
+    left: 120px;
+    z-index: 1; /*joga pra cima. quanto maior o numero, maior a prioridade*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;/*sozinho ele não centraliza(precisa de espaço para ser centralizado)*/
+    min-height: 100vh; /*cria o espaço, porem ocupa quase tudo*/
+    max-width: 380px;/*define o tamanho desse espaço*/
+}
+.conteudo .nome-personagem {
+    color: white;
+    font-size: 48px;
+    font-family: "Secular One";
+    font-weight: 400;
+    margin-bottom: 20px; /*espaçamento entre o titulo e o texto*/
+}
+
+.conteudo .descricao {
+    color: white;
+    font-family: "Rubik";
+    line-height: 24px;
+}
+
+.conteudo .logo {
+    background-image: url("../imagens/one-piece-logo.png");/*"../" volta uma pasta // precisa definir o tamanho pra imagem aparecer*/
+    background-size: cover; /*cobre a area definida abaixo*/
+    height: 100px;
+    width: 230px;
+}
+.botoes {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 180px;
+    justify-content: center; /*alinha a horizontal*/
+    align-items: center; /*alinha a vertical*/
+    gap: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.botoes .botao {
+    border: none;
+    background: #000000;
+    cursor: pointer; /*faz a maozinha */
+    border-radius: 50%;
+}
+
+.botoes .botao img {
+    border-radius: 50%; /*arredonda os botoes*/
+}
+.botoes .botao.selecionado {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px #d9d9d9;
+}
